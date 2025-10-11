@@ -1,0 +1,12 @@
+{
+  "name": "qa-dojo-7-ui-practice",
+  "version": "1.0.0",
+  "description": "playwright UI course",
+  "scripts": {},
+  "author": "Dmytro",
+  "license": "ISC",
+  "dependencies": {
+     "@playwright/test": "^1.55.1",
+     "@types/node": "^24.6.2"
+  }
+}
