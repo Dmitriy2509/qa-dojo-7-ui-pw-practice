@@ -1,4 +1,5 @@
 import test, { expect } from "@playwright/test";
+import { LocatorsCheckboxes } from "../../data/LocatorsCheckboxes";
 
 test("Click all checkboxes", async ({page})=>{
     const homeToggle = page.locator("//*[text()='Home']//parent::*//preceding-sibling::button[//*[@aria-label='Toggle']]");
@@ -48,6 +49,41 @@ test("Click all checkboxes", async ({page})=>{
 
     for(let i = 0; i < countCheckboxes; i++) {
         const isChecked = await markedCheckbox.nth(i).isVisible();
+        expect(isChecked).toBeTruthy();
+    }
+});
+
+test("Click all checkboxes get locators with function", async ({page})=>{
+    const locatorsCheckboxes = new LocatorsCheckboxes();
+    const locators = locatorsCheckboxes.getLocators(page);
+
+    await page.goto("https://demoqa.com/checkbox");
+    await locators.homeToggle.click();
+    await locators.desktopToggle.click();
+    await locators.documentsToggle.click();
+    await locators.downloadsToggle.click();
+    await locators.workspaceToggle.click();
+    await locators.officeToggle.click();
+
+    await locators.notesCheckbox.click();
+    await locators.commandsCheckbox.click();
+
+    await locators.reactCheckbox.click();
+    await locators.angularCheckbox.click();
+    await locators.veuCheckbox.click();
+    
+    await locators.publicCheckbox.click();
+    await locators.privateCheckbox.click();
+    await locators.classifiedCheckbox.click();
+    await locators.generalCheckbox.click();
+    
+    await locators.fileWordCheckbox.click();
+    await locators.fileExcelCheckbox.click();
+   
+    const countCheckboxes = await locators.checkBox.count();
+
+    for(let i = 0; i < countCheckboxes; i++) {
+        const isChecked = await locators.markedCheckbox.nth(i).isVisible();
         expect(isChecked).toBeTruthy();
     }
 });
