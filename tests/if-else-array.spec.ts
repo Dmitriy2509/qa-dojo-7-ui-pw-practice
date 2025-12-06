@@ -65,7 +65,7 @@ test("Verify biggest number", {tag: ["@unit", "@biggestNumber"]}, ()=>{
 
 test("traffic light color", {tag: ["@unit", "@trafficLightColor"]}, ()=>{
     const color = "yellow";
-
+    //@ts-ignore
     if (color === "red") {
         console.log("зачекайте");
     }
@@ -73,7 +73,7 @@ test("traffic light color", {tag: ["@unit", "@trafficLightColor"]}, ()=>{
     if (color === "yellow") {
         console.log("підготуйтеся");
     }
-
+    //@ts-ignore
     if (color === "green") {
         console.log("переходьте");
     }
@@ -89,7 +89,7 @@ test("type of number", {tag: ["@unit", "@typeOfNumber"]}, ()=>{
     if (number < 0) {
         console.log("Число від’ємне.");
     }
-
+     //@ts-ignore
     if (number === 0) {
         console.log("Число дорівнює нулю.");
     }
